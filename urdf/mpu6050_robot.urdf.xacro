@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="mpu6050_robot">
+  
+  <!-- On inclut le contrôleur -->
+  <xacro:include filename="mpu6050_control.xacro" />
+
+  <!-- Base du robot -->
+  <link name="base_link"/>
+
+  <!-- Lien de l'IMU -->
+  <link name="imu_link"/>
+
+  <!-- Joint fixe qui relie l'IMU à la base -->
+  <joint name="imu_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="imu_link"/>
+    <!-- Position de l'IMU par rapport au centre du robot -->
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+</robot>
